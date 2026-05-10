@@ -27,6 +27,10 @@
 	background-color: pink;
  }
  
+  #tree-list > button:hover{
+	  background-color: rgba(255, 255, 255, 1);
+	  color: pink;
+ }
  main{
 	display: flex;
  }
@@ -53,7 +57,13 @@
  
 a{
 	text-decoration: none;	
+	color: pink;
 }
+
+nav, h1, h2, footer a {
+    font-family: "Century Gothic", Tahoma, sans-serif;
+}
+
 footer > ul {
     list-style-type: none;
 	display: flex;
@@ -62,4 +72,13 @@ footer > ul {
 	bottom: 0;
     width: 100%;
 	justify-content: space-around;	
+}
+
+footer > ul > li > a{
+	border: 2px solid #333;
+	padding: 15px;
+	background: white;
+	border-radius: 8px;
+	box-sizing: border-box;
+	font-weight: bold;
 }
