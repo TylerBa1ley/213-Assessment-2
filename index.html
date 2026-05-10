@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Test Map</title>
+	<link rel="stylesheet" href="stylesheet.css">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="logo.jpg" alt="Klimt signature">
+    </header>
+	<div id="main-functionality">
+	
+		<div id="tree-list">
+			<button type="button">Almond</button>		
+			<button type="button">Apple</button>		
+			<button type="button">Apricot</button>		
+			<button type="button">Cherry</button>		
+			<button type="button">Crab Apple</button>		
+			<button type="button">Elderberry</button>		
+			<button type="button">European Beech</button>		
+			<button type="button">Hazel</button>		
+			<button type="button">Honey Locust</button>		
+			<button type="button">Jelly Palm</button>		
+			<button type="button">Juniper</button>		
+			<button type="button">Loquat</button>		
+			<button type="button">Mulberry</button>		
+			<button type="button">Olive</button>		
+			<button type="button">Peach</button>		
+			<button type="button">Pear</button>		
+			<button type="button">Persimon</button>		
+			<button type="button">Plum</button>		
+			<button type="button">Quince</button>		
+			<button type="button">Service Berry</button>		
+			<button type="button">Strawberry Tree</button>		
+			<button type="button">Sweet Bay</button>		
+			<button type="button">Sweet Chestnut</button>		
+			<button type="button">Walnut</button>
+		</div>
+		
+		<div id="map"></div> <script> var map = L.map('map').setView([-43.53, 172.63], 13);</script>
+		<div> <script>L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);</script>
+		</div>
+		<div><script>var marker = L.marker([-43.530548,172.621621]).addTo(map);</script>
+		<div><script>var popup = L.popup();</script></div>
+		<div><script>
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);</script></div>
+	<div><script></div></script>
+	</div>
+    <footer>
+        <ul>
+            <li><a href="temp.html">Terms &amp; Conditions</a></li>
+            <li><a href="temp.html">Privacy Policy</a></li>
+            <li><a href="temp.html">Contact Us</a></li>
+
+        </ul>
+		<button id="newsletter" href="temp.html">Newsletter</button>
+    </footer>	
+</body>
+</html>
+
+
