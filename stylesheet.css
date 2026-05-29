@@ -1,30 +1,57 @@
- header{
+ * {
+    box-sizing: border-box;
+}
+ 
+ body{
+	max-width: 1920px;
+	margin: 0 auto;
+    background: linear-gradient(to bottom,  #a6dba6 0%, #0000 100%);
+	display: grid;	
+ }
+
+body > * {
+
+  border-radius: 5px;
+  padding: 10px;
+}
+
+img{
+	width: 100%;
+	height: auto;
+}
+header{
 	display: flex;
 	justify-content: center;
  }
   
- header > #logo{
-	 max-width: 12.5%;
-	 height: auto;
-  }
+header > #logo{
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+}
   
  #tree-list{
     display: flex;                
     flex-direction: column;       
     gap: 10px;                    
     align-items: flex-start;
-    width: 300px;
+    width: 25%;
+    min-width: 220px;
+    max-width: 300px;
     height: 650px;
-    overflow: auto;
+    overflow-y: auto;
     border: 1px solid #ccc;
 	background-color: white;
 	margin-right: 15px;
+	
  }
  
  #tree-list > button{
 	width: 200px;
-	margin-left: 50px;
 	background-color: pink;
+    padding: 12px;
+    font-size: 1rem;
+	margin-left: 3em;
  }
  
   #tree-list > button:hover{
@@ -35,17 +62,23 @@
 	display: flex;
  }
  
- body{
-    background: linear-gradient(to bottom,  #a6dba6 0%, #0000 100%);
- }
- 
- #map { height: 650px; width: 1200px; border-style: solid; border-color: pink; margin-top: 5px;}
- 
- #main-functionality{
-	 width: 100%;
-	 display: flex;
 
- }
+ 
+#map {
+    height: 650px;
+    width: 100%;
+    min-height: 400px;
+    border-style: solid;
+    border-color: pink;
+    margin-top: 0.5em;
+}
+ 
+#main-functionality{
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
  
 #newsletter{
 	width: 100px;
@@ -64,21 +97,78 @@ nav, h1, h2, footer a {
     font-family: "Century Gothic", Tahoma, sans-serif;
 }
 
+
+
 footer > ul {
     list-style-type: none;
 	display: flex;
-	position: fixed;
-	left: 0;
-	bottom: 0;
     width: 100%;
 	justify-content: space-around;	
+	background-color: pink;	
+	margin: 0;
+	height: 60px;
+	align-items: center;	
+
+	
 }
 
 footer > ul > li > a{
 	border: 2px solid #333;
-	padding: 15px;
 	background: white;
 	border-radius: 8px;
 	box-sizing: border-box;
 	font-weight: bold;
+
 }
+html, body {
+    overflow-x: hidden;
+}
+
+/* RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    #main-functionality{
+        flex-direction: column;
+    }
+
+    #tree-list{
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+
+    #tree-list > button{
+        width: 100%;
+    }
+
+    #map{
+        width: 100%;
+        height: 500px;
+    }
+
+    header > #logo{
+        max-width: 40%;
+    }
+
+    footer > ul{
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

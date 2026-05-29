@@ -3,65 +3,169 @@
 <head>
 	<title>Test Map</title>
 	<link rel="stylesheet" href="stylesheet.css">
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+ 	<link rel="MarkerCluster" href="MarkerCluster.css">	
+	<link rel="MarkerCluster.Default" href="MarkerCluster.Default.css">
+	<script src="MarkerCluster.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+	<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+	
+	<link rel="MarkerCluster" href="MarkerClusterDefault.css">	
+	<link rel="MarkerClusterDefault" href="stylesheet.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script
+     crossorigin=""></script>
+	<script src="icons.js"></script>
+	<script></script>
+	
 </head>
 
 <body>
+
     <header>
         <img id="logo" src="images/logo.jpg" alt="Klimt signature">
     </header>
 	<div id="main-functionality">
 	
 		<div id="tree-list">
-			<button type="button" onclick="popup('Hello world!')">Almond</button>		
-			<button type="button">Apple</button>		
-			<button type="button">Apricot</button>		
-			<button type="button">Cherry</button>		
-			<button type="button">Crab Apple</button>		
-			<button type="button">Elderberry</button>		
-			<button type="button">European Beech</button>		
-			<button type="button">Hazel</button>		
-			<button type="button">Honey Locust</button>		
-			<button type="button">Jelly Palm</button>		
-			<button type="button">Juniper</button>		
-			<button type="button">Loquat</button>		
-			<button type="button">Mulberry</button>		
-			<button type="button">Olive</button>		
-			<button type="button">Peach</button>		
-			<button type="button">Pear</button>		
-			<button type="button">Persimon</button>		
-			<button type="button">Plum</button>		
-			<button type="button">Quince</button>		
-			<button type="button">Service Berry</button>		
-			<button type="button">Strawberry Tree</button>		
-			<button type="button">Sweet Bay</button>		
-			<button type="button">Sweet Chestnut</button>		
-			<button type="button">Walnut</button>
+				 <button type="button" onclick="filterTrees('Almond')">Almond</button>
+				 <button type="button" onclick="filterTrees('Apple')">Apple</button>
+				 <button type="button" onclick="filterTrees('Apricot')">Apricot</button>
+		<!-- <button type="button" onclick="filterTrees('Cherry')">Cherry</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Crab Apple')">Crab Apple</button>	--!>	
+		<!--	<button type="button" onclick="filterTrees('Elderberry')">Elderberry</button>	--!>	
+		<!--	<button type="button" onclick="filterTrees('European Beech')">European Beech</button>	--!>	
+		<!--	<button type="button" onclick="filterTrees('Hazel')">Hazel</button>	--!>	
+		<!--	<button type="button" onclick="filterTrees('Honey Locust')">Honey Locust</button>	--!> 	
+		<!--	<button type="button" onclick="filterTrees('Jelly Palm')">Jelly Palm</button> --!>		
+		<!--	<button type="button" onclick="filterTrees('Juniper')">Juniper</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Loquat')">Loquat</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Mulberry')">Mulberry</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Olive')">Olive</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Peach')">Peach</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Pear')">Pear</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Persimon')">Persimon</button>	--!>	
+		<!--	<button type="button" onclick="filterTrees('Plum')">Plum</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Quince')">Quince</button>		--!>
+		<!--<!--	<button type="button" onclick="filterTrees('Service Berry')">Service Berry</button>	--!>	
+		<!--	<button type="button" onclick="filterTrees('Strawberry Tree')">Strawberry Tree</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Sweet Bay')">Sweet Bay</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Sweet Chestnut')">Sweet Chestnut</button>		--!>
+		<!--	<button type="button" onclick="filterTrees('Walnut')">Walnut</button> --!>
 		</div>
 		
-		<div id="map"></div> <script> var map = L.map('map').setView([-43.53, 172.63], 13);</script>
-		<div> <script>L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);</script>
-		</div>
-		<div><script>var marker = L.marker([-43.530548,172.621621]).addTo(map);</script>
-		<div><script>var popup = L.popup();</script></div>
-		<div><script>
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
 
-map.on('click', onMapClick);</script></div>
-	<div><script></div></script>
-	</div>
+<div id="map" style="height: 600px; width: 100%;"></div> 
+
+
+<script>
+
+    var map = L.map('map').setView([-43.53, 172.63], 13);
+    
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+
+    const markerLayer = L.layerGroup().addTo(map);
+    let allTreeData = null; 
+
+
+    const treeIcons = {
+        "Almond": L.icon({
+            iconUrl: 'images/almond-icon.jpg',
+            iconSize: [25, 25],      
+            iconAnchor: [12, 25],
+            popupAnchor: [0, -25]
+        }),
+        "Apple": L.icon({
+            iconUrl: 'images/apple-icon.jpg',
+            iconSize: [25, 25],      
+            iconAnchor: [12, 25],
+            popupAnchor: [0, -25]
+        }),
+        "Apricot": L.icon({
+            iconUrl: 'images/apricot-icon.jpg',
+            iconSize: [25, 25],      
+            iconAnchor: [12, 25],
+            popupAnchor: [0, -25]
+        }),			
+        "Strawberry Tree": L.icon({
+            iconUrl: 'images/strawberry-icon.jpg',
+            iconSize: [25, 25],
+            iconAnchor: [12, 25],
+            popupAnchor: [0, -25]
+        })
+    };
+
+    fetch('smartview-map-data.geojson')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => { 
+            allTreeData = data; 
+            console.log("Map Ready with SmartView GeoJSON Data!");
+        })
+        .catch(error => {
+            console.error('There was an error loading the tree data file:', error);
+        });
+
+
+    function filterTrees(treeGroupQuery) {
+        if (!allTreeData) {
+            console.warn("Tree data has not loaded yet. Please wait a moment.");
+            return;
+        }
+
+        markerLayer.clearLayers(); 
+
+        const matchedTrees = allTreeData.features.filter(f => 
+            f.properties.group === treeGroupQuery
+        );
+
+        console.log(`Found ${matchedTrees.length} trees for type: ${treeGroupQuery}`);
+
+
+        matchedTrees.forEach(tree => {
+            const name = tree.properties.Name;
+            const coords = tree.geometry.coordinates; 
+            
+
+            const lng = coords[0]; 
+            const lat = coords[1]; 
+
+
+            const iconToUse = treeIcons[treeGroupQuery] || new L.Icon.Default();
+
+
+            L.marker([lat, lng], { icon: iconToUse })
+                .addTo(markerLayer)
+                .bindPopup(`
+                    <strong>${name}</strong><br>
+                    Botanical: <em>${tree.properties.Botanical || 'N/A'}</em><br>
+                    ID: ${tree.properties.id}
+                `);
+        });
+    }
+
+
+    map.on('click', function(e) {
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(map);
+    });
+</script>
+
+
     <footer>
         <ul>
             <li><a href="temp.html">Terms &amp; Conditions</a></li>
@@ -69,7 +173,7 @@ map.on('click', onMapClick);</script></div>
             <li><a href="temp.html">Contact Us</a></li>
 
         </ul>
-		<button id="newsletter" href="temp.html">Newsletter</button>
+
     </footer>	
 </body>
 </html>
