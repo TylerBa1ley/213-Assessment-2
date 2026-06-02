@@ -26,6 +26,29 @@
 
 <body>
 
+<div id="initial-landing-page" class="landing-page-background">
+    <div class="landing-page-content">
+        <h1>Goodfruit Fruit Map</h1>
+        <p>Forage for fresh, delicious fruit planted by the Christchurch City Council!</p>
+        
+        <div class="instructions">
+            <h3>Features:</h3>
+            <ul>
+                <li>🔍 <strong>Search:</strong> Look for a fruit-type in the search-bar to find various locations for that fruit. Pick which one is convenient to you!</li>
+                <li>📍 <strong>Identify:</strong> Click an icon to see details about a tree.</li>
+                <li>🚲 <strong>Navigate:</strong> Get directions of how to get to a tree for bike, bus, or car.</li>
+            </ul>
+        </div>
+        
+        <button id="start-button" onclick="closeLanding()">Start Foraging</button>
+    </div>
+	<script>
+		function closeLanding() {
+			document.getElementById('initial-landing-page').style.display = 'none';
+		}		
+	</script> 
+</div>
+
     <header>
         <img id="logo" src="images/logo.jpg" alt="Klimt signature">
     </header>
@@ -144,15 +167,33 @@
 
 
             const iconToUse = treeIcons[treeGroupQuery] || new L.Icon.Default();
-
+			const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 
             L.marker([lat, lng], { icon: iconToUse })
                 .addTo(markerLayer)
-                .bindPopup(`
-                    <strong>${name}</strong><br>
-                    Botanical: <em>${tree.properties.Botanical || 'N/A'}</em><br>
-                    ID: ${tree.properties.id}
-                `);
+				.bindPopup(`
+					<div class="tree-popup">
+								<strong>${name}</strong><br>
+								<em>${tree.properties.Botanical || ''}</em>
+								<hr>
+								<strong>Get Directions:</strong><br>
+								<div class="nav-links">
+									<a href="${googleMapsUrl}&travelmode=driving" target="_blank">🚗 Drive</a> | 
+									<a href="${googleMapsUrl}&travelmode=bicycling" target="_blank">🚲 Bike</a> | 
+									<a href="${googleMapsUrl}&travelmode=walking" target="_blank">🚶 Walk</a> |
+									<a href="${googleMapsUrl}&travelmode=transit" target="_blank">🚌 Transit</a>
+								</div>
+								<p style="font-size: 0.8em; margin-top: 5px;">
+									<a href="https://www.metroinfo.co.nz/" target="_blank">🚌 Check MetroInfo for Bus</a>
+								</p>
+							</div>
+						`);
+			map.locate({setView: false, watch: true});
+
+			map.on('locationfound', function(e) {
+				var radius = e.accuracy / 2;
+				L.circle(e.latlng, radius).addTo(map).bindPopup("You are here").openPopup();
+			});
         });
     }
 
@@ -166,7 +207,7 @@
 </script>
 
 
-    <footer>
+    <div class="footer">
         <ul>
             <li><a href="temp.html">Terms &amp; Conditions</a></li>
             <li><a href="temp.html">Privacy Policy</a></li>
@@ -174,7 +215,7 @@
 
         </ul>
 
-    </footer>	
+    </div>	
 </body>
 </html>
 
