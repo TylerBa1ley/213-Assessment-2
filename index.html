@@ -103,7 +103,12 @@
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-
+	
+    map.locate({setView: false, watch: true});
+    map.on('locationfound', function(e) {
+        var radius = e.accuracy / 2;
+        L.circle(e.latlng, radius).addTo(map).bindPopup("You are here").openPopup();
+    });
 
     const markerLayer = L.layerGroup().addTo(map);
     let allFruitTreeData = null; 
@@ -199,23 +204,18 @@
 								</p>
 							</div>
 						`);
-			map.locate({setView: false, watch: true});
-
-			map.on('locationfound', function(e) {
-				var radius = e.accuracy / 2;
-				L.circle(e.latlng, radius).addTo(map).bindPopup("You are here").openPopup();
-			});
 
 			
 			
         });
 
     }
-		const searchInput = document.getElementById("searchBar");
-		  searchInput.addEventListener("input", (event) => {
-		const value = event.target.value;
-		filterFruitTrees(value);
-		});
+	
+	
+    const searchInput = document.getElementById("searchBar");
+    searchInput.addEventListener("input", (event) => {
+        filterFruitTrees(event.target.value);
+    });
 
 </script>
 
