@@ -34,60 +34,70 @@
         <div class="instructions">
             <h3>Features:</h3>
             <ul>
-                <li>🔍 <strong>Search:</strong> Look for a fruit-type in the search-bar to find various locations for that fruit. Pick which one is convenient to you!</li>
-                <li>📍 <strong>Identify:</strong> Click an icon to see details about a tree.</li>
-                <li>🚲 <strong>Navigate:</strong> Get directions of how to get to a tree for bike, bus, or car.</li>
+                <li><strong>Search:</strong> Look for a fruit-type in the search-bar to find various locations for that fruit. Pick which one is convenient to you!</li>
+                <li><strong>Identify:</strong> Click an icon to see details about a tree.</li>
+                <li><strong>Navigate:</strong> Get directions of how to get to a tree for bike, bus, or car.</li>
             </ul>
         </div>
         
-        <button id="start-button" onclick="closeLanding()">Start Foraging</button>
+        <button id="start-button" onclick="landingPageClose()">Start Foraging</button>
     </div>
 	<script>
-		function closeLanding() {
+		function landingPageClose() {
 			document.getElementById('initial-landing-page').style.display = 'none';
 		}		
 	</script> 
 </div>
 
-    <header>
-        <img id="logo" src="images/logo.jpg" alt="Klimt signature">
-    </header>
+	<header>
+		<div id="top">
+			<img id="logo" src="images/logo.png" alt="goodfruit logo">
+			
+		<input 
+		  type="search" 
+		  id="searchBar" 
+		  placeholder="Search fruit trees..."
+		>
+		</div>		
+	</header>
+	
+	<main>
 	<div id="main-functionality">
 	
-		<div id="tree-list">
-				 <button type="button" onclick="filterTrees('Almond')">Almond</button>
-				 <button type="button" onclick="filterTrees('Apple')">Apple</button>
-				 <button type="button" onclick="filterTrees('Apricot')">Apricot</button>
-		<!-- <button type="button" onclick="filterTrees('Cherry')">Cherry</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Crab Apple')">Crab Apple</button>	--!>	
-		<!--	<button type="button" onclick="filterTrees('Elderberry')">Elderberry</button>	--!>	
-		<!--	<button type="button" onclick="filterTrees('European Beech')">European Beech</button>	--!>	
-		<!--	<button type="button" onclick="filterTrees('Hazel')">Hazel</button>	--!>	
-		<!--	<button type="button" onclick="filterTrees('Honey Locust')">Honey Locust</button>	--!> 	
-		<!--	<button type="button" onclick="filterTrees('Jelly Palm')">Jelly Palm</button> --!>		
-		<!--	<button type="button" onclick="filterTrees('Juniper')">Juniper</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Loquat')">Loquat</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Mulberry')">Mulberry</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Olive')">Olive</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Peach')">Peach</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Pear')">Pear</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Persimon')">Persimon</button>	--!>	
-		<!--	<button type="button" onclick="filterTrees('Plum')">Plum</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Quince')">Quince</button>		--!>
-		<!--<!--	<button type="button" onclick="filterTrees('Service Berry')">Service Berry</button>	--!>	
-		<!--	<button type="button" onclick="filterTrees('Strawberry Tree')">Strawberry Tree</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Sweet Bay')">Sweet Bay</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Sweet Chestnut')">Sweet Chestnut</button>		--!>
-		<!--	<button type="button" onclick="filterTrees('Walnut')">Walnut</button> --!>
+		<div id="fruittree-list">
+				 <button type="button" onclick="filterFruitTrees('Almond')">Almond</button>
+				 <button type="button" onclick="filterFruitTrees('Apple')">Apple</button>
+				 <button type="button" onclick="filterFruitTrees('Apricot')">Apricot</button>
+		<!-- <button type="button" onclick="filterFruitTrees('Cherry')">Cherry</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Crab Apple')">Crab Apple</button>	--!>	
+		<!--	<button type="button" onclick="filterFruitTrees('Elderberry')">Elderberry</button>	--!>	
+		<!--	<button type="button" onclick="filterFruitTrees('European Beech')">European Beech</button>	--!>	
+		<!--	<button type="button" onclick="filterFruitTrees('Hazel')">Hazel</button>	--!>	
+		<!--	<button type="button" onclick="filterFruitTrees('Honey Locust')">Honey Locust</button>	--!> 	
+		<!--	<button type="button" onclick="filterFruitTrees('Jelly Palm')">Jelly Palm</button> --!>		
+		<!--	<button type="button" onclick="filterFruitTrees('Juniper')">Juniper</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Loquat')">Loquat</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Mulberry')">Mulberry</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Olive')">Olive</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Peach')">Peach</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Pear')">Pear</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Persimon')">Persimon</button>	--!>	
+		<!--	<button type="button" onclick="filterFruitTreesfilterTrees('Plum')">Plum</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Quince')">Quince</button>		--!>
+		<!--<!--	<button type="button" onclick="filterFruitTrees('Service Berry')">Service Berry</button>	--!>	
+		<!--	<button type="button" onclick="filterFruitTrees('Strawberry Tree')">Strawberry Tree</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Sweet Bay')">Sweet Bay</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Sweet Chestnut')">Sweet Chestnut</button>		--!>
+		<!--	<button type="button" onclick="filterFruitTrees('Walnut')">Walnut</button> --!>
 		</div>
 		
 
-<div id="map" style="height: 600px; width: 100%;"></div> 
+<div id="christchurchMap" style="height: 600px; width: 100%;"></div> 
 
 
 <script>
 
-    var map = L.map('map').setView([-43.53, 172.63], 13);
+    var map = L.map('christchurchMap').setView([-43.53, 172.63], 13);
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -96,15 +106,16 @@
 
 
     const markerLayer = L.layerGroup().addTo(map);
-    let allTreeData = null; 
+    let allFruitTreeData = null; 
 
 
-    const treeIcons = {
-        "Almond": L.icon({
+    const fruitTreeIcons = {
+        "Almond": L.icon({	
             iconUrl: 'images/almond-icon.jpg',
             iconSize: [25, 25],      
             iconAnchor: [12, 25],
-            popupAnchor: [0, -25]
+            popupAnchor: [0, -25],
+
         }),
         "Apple": L.icon({
             iconUrl: 'images/apple-icon.jpg',
@@ -125,7 +136,7 @@
             popupAnchor: [0, -25]
         })
     };
-
+	
     fetch('smartview-map-data.geojson')
         .then(response => {
             if (!response.ok) {
@@ -134,7 +145,7 @@
             return response.json();
         })
         .then(data => { 
-            allTreeData = data; 
+            allFruitTreeData = data; 
             console.log("Map Ready with SmartView GeoJSON Data!");
         })
         .catch(error => {
@@ -142,49 +153,49 @@
         });
 
 
-    function filterTrees(treeGroupQuery) {
-        if (!allTreeData) {
-            console.warn("Tree data has not loaded yet. Please wait a moment.");
+    function filterFruitTrees(fruitTreeGroupQuery) {
+        if (!allFruitTreeData) {
+            console.warn("Fruit tree data has not loaded yet. Please wait a moment.");
             return;
         }
 
         markerLayer.clearLayers(); 
 
-        const matchedTrees = allTreeData.features.filter(f => 
-            f.properties.group === treeGroupQuery
+        const matchedFruitTrees = allFruitTreeData.features.filter(f => 
+            f.properties.group === fruitTreeGroupQuery
         );
 
-        console.log(`Found ${matchedTrees.length} trees for type: ${treeGroupQuery}`);
+        console.log(`Found ${matchedFruitTrees.length} trees for type: ${fruitTreeGroupQuery}`);
 
 
-        matchedTrees.forEach(tree => {
-            const name = tree.properties.Name;
-            const coords = tree.geometry.coordinates; 
+        matchedFruitTrees.forEach(fruitTree => {
+            const name = fruitTree.properties.Name;
+            const coords = fruitTree.geometry.coordinates; 
             
 
             const lng = coords[0]; 
             const lat = coords[1]; 
 
 
-            const iconToUse = treeIcons[treeGroupQuery] || new L.Icon.Default();
+            const iconToUse = fruitTreeIcons[fruitTreeGroupQuery] || new L.Icon.Default();
 			const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 
             L.marker([lat, lng], { icon: iconToUse })
                 .addTo(markerLayer)
 				.bindPopup(`
-					<div class="tree-popup">
+					<div class="fruittree-popup">
 								<strong>${name}</strong><br>
-								<em>${tree.properties.Botanical || ''}</em>
+								<em>${fruitTree.properties.Botanical || ''}</em>
 								<hr>
 								<strong>Get Directions:</strong><br>
 								<div class="nav-links">
-									<a href="${googleMapsUrl}&travelmode=driving" target="_blank">🚗 Drive</a> | 
-									<a href="${googleMapsUrl}&travelmode=bicycling" target="_blank">🚲 Bike</a> | 
-									<a href="${googleMapsUrl}&travelmode=walking" target="_blank">🚶 Walk</a> |
-									<a href="${googleMapsUrl}&travelmode=transit" target="_blank">🚌 Transit</a>
+									<a href="${googleMapsUrl}&travelmode=driving" target="_blank"> <img class="transport" src="images/car.png" alt="car"> Drive</a>| 
+									<a href="${googleMapsUrl}&travelmode=bicycling" target="_blank"><img class="transport" src="images/bike.png" alt="bike"> Bike</a> | 
+									<a href="${googleMapsUrl}&travelmode=walking" target="_blank"><img id="walk" src="images/walk.png" alt="walk"> Walk</a> |
+									<a href="${googleMapsUrl}&travelmode=transit" target="_blank"><img class="transport" src="images/bus.png" alt="bus"> Transit</a>
 								</div>
 								<p style="font-size: 0.8em; margin-top: 5px;">
-									<a href="https://www.metroinfo.co.nz/" target="_blank">🚌 Check MetroInfo for Bus</a>
+									<a href="https://www.metroinfo.co.nz/" target="_blank"><img class="transport" src="images/bus.png" alt="bus"> Check MetroInfo for Bus</a>
 								</p>
 							</div>
 						`);
@@ -194,19 +205,21 @@
 				var radius = e.accuracy / 2;
 				L.circle(e.latlng, radius).addTo(map).bindPopup("You are here").openPopup();
 			});
+
+			
+			
         });
+
     }
+		const searchInput = document.getElementById("searchBar");
+		  searchInput.addEventListener("input", (event) => {
+		const value = event.target.value;
+		filterFruitTrees(value);
+		});
 
-
-    map.on('click', function(e) {
-        L.popup()
-            .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.toString())
-            .openOn(map);
-    });
 </script>
 
-
+	</main>
     <div class="footer">
         <ul>
             <li><a href="temp.html">Terms &amp; Conditions</a></li>

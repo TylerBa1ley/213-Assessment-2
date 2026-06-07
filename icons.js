@@ -5,7 +5,7 @@ const almondIcon = L.icon({
     popupAnchor: [0, -32]             
 });
 
-const treeIcons = {
+const fruitTreeIcons = {
     "Oak": oakIcon
     "Almond": almondIcon,
     "English Oak": oakIcon,
